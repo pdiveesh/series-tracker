@@ -1,0 +1,332 @@
+:root {
+    --netflix-olive: #556b2f; /* Olive Green */
+    --netflix-black: #141414;
+    --netflix-dark-gray: #181818;
+    --netflix-light-gray: #808080;
+    --netflix-white: #ffffff;
+    --netflix-hover-olive: #6b8e23; /* Hover shade of Olive Green */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+html{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+}
+body {
+    background-color: var(--netflix-black);
+    color: var(--netflix-white);
+    line-height: 1.6;
+}
+
+/* Existing header styles */
+.header {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add this CSS for the logo image and logo text */
+.logo {
+    color: var(--netflix-olive);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 200px; /* Adjust the size as needed */
+    height: auto;
+    margin-right: 0.8rem; /* Adjust the space between logo and text */
+}
+
+/* Optional adjustments for the header content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.logo {
+    color: var(--netflix-olive);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.netflix-button {
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--netflix-olive);
+    color: var(--netflix-white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.netflix-button:hover {
+    background-color: var(--netflix-hover-olive);
+    transform: scale(1.05);
+}
+
+.netflix-button.secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+}
+
+.netflix-button.secondary:hover {
+    background-color: rgba(109, 109, 110, 0.9);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--netflix-dark-gray);
+    margin: 5% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--netflix-light-gray);
+}
+
+.close:hover {
+    color: var(--netflix-white);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--netflix-light-gray);
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333;
+    color: var(--netflix-white);
+    font-size: 1rem;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+    outline: none;
+    border-color: var(--netflix-olive);
+}
+
+/* Series Grid Styles */
+.series-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.series-card {
+    background-color: var(--netflix-dark-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.series-card:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.series-card:hover .series-info {
+    opacity: 1;
+}
+
+.series-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.series-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, transparent);
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.series-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.series-meta {
+    font-size: 0.9rem;
+    color: var(--netflix-light-gray);
+    margin-bottom: 0.5rem;
+}
+
+.series-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Tab Styles */
+.tab-container {
+    margin: 2rem 0;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--netflix-light-gray);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--netflix-white);
+}
+
+.tab-btn.active {
+    color: var(--netflix-white);
+    border-bottom-color: var(--netflix-olive);
+}
+
+/* Search Results Styles */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--netflix-dark-gray);
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-item {
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-item:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.placeholder-image {
+    background-color: #2f2f2f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: var(--netflix-light-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .series-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .series-image {
+        height: 225px;
+    }
+}
+
+/* Netflix-style scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--netflix-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--netflix-olive);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--netflix-dark-gray);
+}
